@@ -1,0 +1,17 @@
+<div class="todo-item" [class.todo-item-completed]="todo.completed">
+    <div class="check-box">
+        <i class="fa fa-check" id="todocheck"></i>
+    </div>
+    <div class="todo-text">
+        {{todo.text}}
+    </div>
+    <div class="todo-controls-box">
+        <div class="todo-control-button">
+            <i class="fa fa-pen todoedit"></i>
+        </div>
+        <div class="todo-control-button is-danger">
+            <i class="fa fa-trash todotrash"></i>
+        </div>
+    </div>
+
+</div>
