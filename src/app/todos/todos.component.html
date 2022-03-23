@@ -1,0 +1,70 @@
+<section class="heading-section">
+
+    <h1 class="title">Todos</h1>
+
+</section>
+
+<div class="container">
+    <div class="add-todo-box">
+        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+            <h3>New Todo</h3>
+            <div class="field">
+                <div class="input-group mb-3">
+                    <input ngModel name="text" type="text" class="form-control" placeholder="Type todo text here"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <button class="btn" type="submit" id="todobutton"><i class="fa fa-plus" id="plusicon"></i>
+                            Add</button>
+                    </div>
+                </div>
+            </div>
+            <p class="help is-danger">Form is invalid</p>
+
+        </form>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="todos-list">
+            <!-- <div class="todo-item">
+                <div class="check-box">
+                    <i class="fa fa-check" id="todocheck"></i>
+                </div>
+                <div class="todo-text">
+                    Sample todo #1
+                </div>
+
+                <div class="todo-controls-box">
+                    <div class="todo-control-button">
+                        <i class="fa fa-pen todoedit"></i>
+                    </div>
+                    <div class="todo-control-button is-danger">
+                        <i class="fa fa-trash todotrash"></i>
+                    </div>
+                </div>
+
+            </div> -->
+
+
+            <div class="todo-item" *ngFor="let todo of todos" [class.todo-item-completed]="todo.completed">
+                <div class="check-box">
+                    <i class="fa fa-check" id="todocheck"></i>
+                </div>
+                <div class="todo-text">
+                    {{todo.text}}
+                </div>
+                <div class="todo-controls-box">
+                    <div class="todo-control-button">
+                        <i class="fa fa-pen todoedit"></i>
+                    </div>
+                    <div class="todo-control-button is-danger">
+                        <i class="fa fa-trash todotrash"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
