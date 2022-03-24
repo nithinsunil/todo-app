@@ -4,7 +4,7 @@
 
 </section>
 
-<div class="container">
+<div class="container add-todo-box-container">
     <div class="add-todo-box">
         <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
             <h3>New Todo</h3>
@@ -14,7 +14,7 @@
                         class="form-control" placeholder="Type todo text here" aria-label="Recipient's username"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn" type="submit" id="todobutton"><i class="fa fa-plus" id="plusicon"></i>
+                        <button class="btn todobutton" type="submit"> <i class="fa fa-plus" id="plusicon"></i>
                             Add</button>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
 <section class="section">
     <div class="container">
         <div class="todos-list">
-           <app-todo-item></app-todo-item>          
+           <app-todo-item *ngFor="let todo of todos" [todo]="todo" (todoClicked)="toggleCompleted(todo)" (editClicked)="editTodo(todo)" (deleteClicked)="deleteTodo(todo)"></app-todo-item>          
 
         </div>
     </div>

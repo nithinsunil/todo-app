@@ -1,0 +1,137 @@
+.todo-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    padding: 35px 15px;
+    border-bottom: solid #eee 1px;  
+    position: relative;
+  
+}
+
+.todo-item-completed {
+    opacity: .7;
+
+}
+
+.todo-item-completed:hover .check-box{
+    background: turquoise;
+    border-color: turquoise;
+}
+
+.todo-item-completed:hover #todocheck{
+    color: grey;
+    opacity: 1;
+}
+
+.todo-item-completed .todo-text{
+    text-decoration: line-through;
+
+}
+
+.todo-item-completed .check-box{
+    background: turquoise;
+    border-color: turquoise;
+}
+
+.todo-item-completed .check-box #todocheck{
+    color: grey;
+    opacity: 1;
+}
+
+.todo-item .check-box {
+    display: flex;
+    flex-shrink: 0;
+    border: solid 2px #eee;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 20px;
+    transition: background-color 0.2s, border-color 0.2s;
+    
+}
+
+#todocheck {
+    font-size: 17px;
+    margin: auto;
+    color: #333;
+    /* hide by default */
+    opacity: 0; 
+    transition: opacity 0.2s;
+}
+
+/* #todocheck:hover {
+    opacity: 1;
+} */
+
+.todo-item:hover #todocheck{
+    opacity: 0.30;
+    /* opacity: 1; */
+}
+
+/* .todo-item:hover .check-box {
+    background: #eee;
+} */
+
+
+
+.todo-item .todo-controls-box {
+    position: absolute;
+    display: flex;
+    /* margin-left: 660px;
+    margin-top: 56px; */
+    right: 5px;
+    bottom: 0;
+    /* hide by default */
+    opacity: 0;
+    visibility: hidden;
+    
+}
+
+.todo-item:hover .todo-controls-box{
+    opacity: 1;
+    visibility: visible;
+}
+
+.todo-controls-box .todo-control-button {
+    padding: 5px 10px;
+    background: #f5f7f8;
+    display: flex;
+    color: #555;
+}
+
+.todo-controls-box .todo-control-button:hover{
+    background-color: #eee;
+    color: #333;
+}
+
+.todo-controls-box .todo-control-button:active{
+    background-color: #e5e7e8;
+    color: rgb(29, 29, 29);
+}
+
+.is-danger:hover .todotrash{
+    color: rgb(207, 0, 0);
+}
+
+.is-danger:active .todotrash{
+    color: rgb(255, 0, 0);
+}
+
+
+.todo-control-button:nth-child(1){
+    border-top-left-radius: 7px;
+}
+
+.todo-control-button:nth-child(2){
+    border-top-right-radius: 7px;
+    
+}
+
+.todotrash{
+    font-size: 20px;
+}
+
+.todoedit{
+    font-size: 20px;
+}

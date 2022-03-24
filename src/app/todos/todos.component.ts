@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { EditTodoDialogComponent } from '../edit-todo-dialog/edit-todo-dialog.component';
 import { DataService } from '../shared/data.service';
 import { Todo } from '../shared/todo.model';
 
@@ -14,7 +16,7 @@ export class TodosComponent implements OnInit {
   showValidationErrors!: boolean
 
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.todos = this.ds.getAllTodos()
@@ -29,5 +31,32 @@ export class TodosComponent implements OnInit {
        form.reset()
           
 
+  }
+
+  toggleCompleted(todo: Todo){
+    todo.completed = !todo.completed 
+  }
+
+  editTodo(todo: Todo){
+    const index = this.todos.indexOf(todo)
+
+    let dialogRef = this.dialog.open(EditTodoDialogComponent, {
+    
+      width: '700px',
+      data: todo
+    });
+
+    dialogRef.afterClosed().subscribe((result)=>{
+      if(result){
+        this.ds.updateTodo(index, result)
+      }
+    })
+
+   // this.ds.updateTodo()
+  }
+
+  deleteTodo(todo: Todo){
+    const index = this.todos.indexOf(todo)
+    this.ds.deleteTodo(index)
   }
 }

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.todobutton {
+    color: white;
+    background: linear-gradient(to right, #b259ed, #fa4348);
+    font-weight: 600;
+    opacity: .85;    
+}
+
+.todobutton:hover {
+    opacity: 1;
+    color: white;
+}
+
+.is-danger{
+    color: red;
+   cursor: pointer;
+   font-size: 14px;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; }
